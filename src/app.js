@@ -4,11 +4,10 @@ import pkg from '../package.json';
 import productroutes from "./routes/productos.routes" 
 import authRoutes from "./routes/auth.routes"
 
+
 const app = express()
 app.set('pkg', pkg)
-
 app.use(morgan('dev')); 
-
 app.use(express.json()) //Nos permite recibir los datos en formato json
 
 app.get('/',(req, res) => {
@@ -21,7 +20,8 @@ app.get('/',(req, res) => {
 })
 
 app.use('/api/products',productroutes)
- app.use('/api/auth', authRoutes)   
+app.use('/api/auth', authRoutes)   
+
 
 
 export default app;

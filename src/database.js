@@ -1,13 +1,14 @@
 import mongoose from 'mongoose'
+import { MONGO_URI } from './config'
 
 export const getConnection = async ()=>{
     try {
-        const db = mongoose.connect("mongodb://127.0.0.1:27017/IT-services",{
+        const db = await mongoose.connect(MONGO_URI,{
             useNewUrlParser:true,   
             useUnifiedTopology:true    
 
         })
-        console.log("conected")
+        console.log("conected to:", db.connection.name)
     } catch (error) {
         console.log(error.message)
     }

@@ -1,11 +1,11 @@
 import { Schema, model } from  'mongoose'
 import bcrypt from 'bcryptjs'
+import { Router } from 'express';
 
 const userSchema = new Schema({
 
     username:{
         type: String,
-        unique:true
     },
     email:{
         type: String,
@@ -24,6 +24,7 @@ const userSchema = new Schema({
     timestamps:true,
     versionKey:false      
 })
+
 
   
   const Users = model('Users', userSchema);
